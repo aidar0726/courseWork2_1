@@ -15,8 +15,8 @@ public class Diary {
 
 
     private Integer sing;
-
-    static private Integer id = 0;
+    private static Integer counter = 1;
+    private final Integer id;
     private LocalDate creationDate;
 
     private LocalTime creationTime;
@@ -30,7 +30,7 @@ public class Diary {
         diarySing = sign;
         creationDate = LocalDate.now();
         creationTime = LocalTime.now();
-        id = id + 1;
+        id = counter++;
     }
 
     public String getHeader() {
@@ -49,7 +49,7 @@ public class Diary {
         return diarySing;
     }
 
-    public static Integer getId() {
+    public  Integer getId() {
         return id;
     }
 

@@ -4,12 +4,24 @@ import diary.Sign;
 import diary.Type;
 import diary.DiaryService;
 
-import java.util.Scanner;
+import java.util.*;
 
 import static diary.DiaryService.*;
 
 public class Main {
     public static void main(String[] args) {
+        // начало задачи билета №19
+        System.out.print("задачи билета №19");
+        Integer[] nums = new Integer[]{1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20};
+        System.out.print(returnArrOddNumbers(nums));
+
+        HashMap<String, String> book = new HashMap<>();
+        book.put("Война и мир", "Л.Н.Толстой");
+        book.put("Преступление и наказание", "Ф.М. Достоевский");
+        showBook(book);
+        // конец задачи билета №19
+
+
         try (Scanner scanner = new Scanner(System.in)) {
             label:
             while (true) {
@@ -107,6 +119,26 @@ public class Main {
                 "1. Добавить задачу " +
                         "2. Удалить задачу " +
                         "3. Вывести задачи на указанную дату ");
+    }
+
+    //задачи с билета № 19
+    public static List<Integer> returnArrOddNumbers(Integer[] arr) {
+        ArrayList<Integer> newArr = new ArrayList<Integer>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                newArr.add(arr[i] + 1);
+            }
+        }
+
+        return newArr.subList(3, 7);
+    }
+
+    public static void showBook(HashMap<String, String> book) {
+        for (Map.Entry<String, String> entry : book.entrySet()) {
+            System.out.println("Название книги - " + entry.getKey() + ", Автор -  " + entry.getValue());
+        }
+
     }
 
 }
